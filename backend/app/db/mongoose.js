@@ -1,19 +1,15 @@
 const mongoose = require('mongoose');
+const {database} = require('../config');
 
-// MongoDB connection URI
-const uri = "mongodb://wojbuk3335:Bukowski1234@mongodb.server100705.nazwa.pl:4034/server100705_Bukowski"; 
-// const uri = "mongodb://wojbuk3335:Bukowski1234@mongodb.server100705.nazwa.pl:4034/server100705_Bukowski";
-// const uri = "mongodb+srv://wojbuk3335:Bukowski1234@cluster0.tgprkjd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// Connect to MongoDB
+// Replace with your MongoDB connection string
+const mongoURI = database;
 
-mongoose.connect(uri)
+mongoose.connect(mongoURI)
   .then(() => {
-    console.log("Successfully connected to MongoDB!");
+    console.log('Connected to MongoDB successfully');
   })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
   });
 
-// Export the mongoose connection
 module.exports = mongoose;
-
